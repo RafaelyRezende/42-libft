@@ -6,13 +6,13 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 09:38:25 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/08 09:40:49 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:25:54 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/libft.h"
 
-char	*ft_strrchr(char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*e_ptr;
 	int	length;

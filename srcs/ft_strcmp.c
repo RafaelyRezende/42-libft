@@ -6,13 +6,13 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 09:30:30 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/08 09:32:00 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:29:59 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 || *s2)
 	{
