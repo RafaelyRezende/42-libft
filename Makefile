@@ -6,22 +6,25 @@ DEBUG = gdb --tui
 
 NAME = libft.a
 
-SRCS = $(wildcard srcs/*.c)
+SRCS = $(wildcard *.c)
 
-OBJS = $(patsubst srcs/%.c,srcs/%.o,$(SRCS))
+OBJS = $(patsubst %.c,%.o,$(SRCS))
 
 all: $(NAME)
 
 $(NAME): $(OBJS) 
 	ar rcs $@ $^
 
-srcs/%.o: srcs/%.c 
+%.o: %.c 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf libft.a
+	rm -rf $(OBJS) 
 
 fclean: clean
-	rm -rf $(OBJS)
+	rm -rf libft.a
 
 re: fclean all
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
