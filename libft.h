@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 19:40:33 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/02 18:40:55 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/04/12 21:45:31 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -17,7 +17,6 @@
 #include <fcntl.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <bsd/string.h>
 #include <limits.h>
 //--------------------------DEFINES-------------------------------------
 #define TRUE 1
