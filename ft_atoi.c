@@ -14,7 +14,7 @@
 
 static int	ft_isspace(int c)
 {
-	unsigned char ch;
+	unsigned char	ch;
 
 	ch = (unsigned char) c;
 	if ((ch >= 9 && ch <= 13) || (ch == 32))
@@ -39,16 +39,15 @@ int	ft_atoi(const char *nptr)
 		if (*nptr == '-')
 			sign *= -1;
 		nptr++;
-		break;
+		break ;
 	}
 	while (ft_isdigit(*nptr) && *nptr)
 	{
 		res = res * 10 + *nptr - '0';
 		nptr++;
 	}
-	return (sign * res);	
+	return (sign * res);
 }
-
 /*
 #include <stdio.h>
 #include <stdlib.h>

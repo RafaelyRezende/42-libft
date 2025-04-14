@@ -28,7 +28,7 @@ static char	*ft_search(char const *s1, char const *set)
 	while (*s1)
 	{
 		if (!ft_found(*s1, set))
-			break;
+			break ;
 		s1++;
 	}
 	return ((char *)s1);
@@ -54,7 +54,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*start;
 	int		diff;
 	int		i;
-	
+
 	start = ft_search(s1, set);
 	diff = ft_rsearch(s1, set, ft_strlen(s1)) - start ;
 	if (diff < 0)
@@ -71,25 +71,25 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr[i] = '\0';
 	return (ptr);
 }
-//
-//#include <stdio.h>
-//
-//int main()
-//{
-	/*
+/*
+#include <stdio.h>
+
+int main()
+{
+
 	char	s1[] = "   \t\nTrim this\nDUCKER \t\n\t\n   ";
 	char	s2[] = " \t\n";
-	char	res[] = "Trim this\nDUCKER";
-*/
+	//char	res[] = "Trim this\nDUCKER";
+
 //	char	s1[] = "1234Hello4231";
 //	char	s2[] = "3124";
 //	char	res[] = "Hello";
-//
-//	printf("%s\n", ft_search(s1, s2));
-//	printf("%s\n", ft_rsearch(s1,s2, ft_strlen(s1)));
-//	printf("%s\n", res);
-//}
-/*
+	char	*s3;
+
+	s3 =  ft_strtrim(s1, s2);
+	printf("%s\n", s3);
+	free(s3);
+}
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*start;

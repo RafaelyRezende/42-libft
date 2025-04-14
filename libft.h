@@ -12,18 +12,19 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-//--------------------------INCLUDES------------------------------------
-#include <unistd.h>
-#include <fcntl.h>
-#include <assert.h>
-#include <stdlib.h>
-#include <limits.h>
-//--------------------------DEFINES-------------------------------------
-#define TRUE 1
-#define FALSE 0
+//--------------------------INCLUDES--------------------------------------
+# include <unistd.h>
+# include <fcntl.h>
+# include <assert.h>
+# include <stdlib.h>
+# include <limits.h>
+//--------------------------DEFINES---------------------------------------
+# define TRUE 1
+# define FALSE 0
 
 int		ft_atoi(const char *nptr);
-//--------------------------STRING MANIPULATION--------------------------------------------
+char	*ft_itoa(int n);
+//--------------------------STRING MANIPULATION---------------------------
 size_t	ft_strlen(const char *str);
 void	ft_putstr(char *str);
 void	ft_putchar(int c);
@@ -40,7 +41,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-//--------------------------CHARACTER VERIFICATION--------------------------------------------
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+char	**ft_split(char const *s, char c);
+//--------------------------CHARACTER VERIFICATION------------------------
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isalpha(int c);
@@ -48,7 +54,7 @@ int		ft_isprint(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
-//--------------------------MEMORY MANIPULATION--------------------------------------------
+//--------------------------MEMORY MANIPULATION---------------------------
 void	*ft_memcpy(void *dest, const void *src, unsigned int n);
 int		ft_memcmp(const void *s1, const void *s2, unsigned int n);
 void	*ft_memmove(void *dest, const void *src, unsigned int n);

@@ -18,7 +18,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 
 	i = 0;
-	if (start >= (unsigned int) ft_strlen(s) || len == 0)
+	if (!*s || start >= ft_strlen(s) || len == 0)
+		return (ft_strdup(""));
+	if (start >= (unsigned int) ft_strlen(s) && len == 0)
 	{
 		substr = (char *) malloc(1);
 		*substr = '\0';
