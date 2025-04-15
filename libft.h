@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 19:40:33 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/12 21:45:31 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:59:10 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -73,4 +73,8 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif
