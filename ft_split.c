@@ -36,9 +36,10 @@ static size_t	ft_countwords(char const *s, char c)
 	}
 	return (i);
 }
-static char **ft_freeall(char **matrix, size_t j)
+
+static int	ft_freeall(char **matrix, int j)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < j)
@@ -47,10 +48,72 @@ static char **ft_freeall(char **matrix, size_t j)
 		i++;
 	}
 	free(matrix);
+	return (1);
+}
+
+static int	ft_fill(char const *s, char **matrix, char c, int k)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (j < k)
+	{
+		i = 0;
+		while (*s == c && *s)
+			s++;
+		while (*s && *s != c)
+		{
+			i++;
+			s++;
+		}
+		if (i)
+		{
+			matrix[j] = ft_substr(s - i, 0, i);
+			if (!matrix[j])
+				return (ft_freeall(matrix, j));
+			j++;
+		}
+	}
+	matrix[j] = 0;
 	return (0);
 }
 
+char	**ft_split(char const *s, char c)
+{
+	char	*ptr;
+	char	**matrix;
+	size_t	iter;
+
+	if (!s)
+		return (NULL);
+	ptr = (char *)s;
+	iter = ft_countwords(ptr, (unsigned char)c);
+	matrix = (char **) malloc(sizeof(char *) * (iter + 1));
+	if (!matrix)
+		return (NULL);
+	if (ft_fill(s, matrix, (unsigned char)c, (int)iter))
+		return (NULL);
+	return (matrix);
+}
 /*
+int	main()
+{
+	char	**strs;
+	char	s[] = "^^^1^^2a,^^^^3^^^^--h^^^^";
+	strs = ft_split(s, '^');
+	printf("%zu\n", ft_countwords(s, '^'));
+	int i;
+
+	i = 0;
+	while (strs[i])
+	{
+		printf("%s\n", strs[i]);
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
 static void	ft_full_fill(char const *s, char c, char **matrix)
 {
 	size_t	i;
@@ -80,8 +143,6 @@ static void	ft_full_fill(char const *s, char c, char **matrix)
 	}
 	matrix[j] = NULL;
 }
-
-*/
 static char **ft_something(char const *s, char **matrix, char c)
 {
 	int	i;
@@ -113,41 +174,5 @@ static char **ft_something(char const *s, char **matrix, char c)
 	}
 	matrix[j] = 0;
 	return (matrix);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	*ptr;
-	char	**matrix;
-	size_t	i;
-
-	if (!s)
-		return (NULL);
-	ptr = (char *)s;
-	i = ft_countwords(ptr, (unsigned char)c);
-	matrix = (char **) malloc(sizeof(char *) * (i + 1));
-	if (!matrix)
-		return (NULL);	
-	matrix = ft_something(ptr, matrix, c);
-	//ft_full_fill(ptr, c, matrix);
-	return (matrix);
-}
-/*
-int	main()
-{
-	char	**strs;
-	char	s[] = "^^^1^^2a,^^^^3^^^^--h^^^^";
-	strs = ft_split(s, '^');
-	printf("%zu\n", ft_countwords(s, '^'));
-	int i;
-
-	i = 0;
-	while (strs[i])
-	{
-		printf("%s", strs[i]);
-		free(strs[i]);
-		i++;
-	}
-	free(strs);
 }
 */
