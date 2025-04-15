@@ -10,6 +10,10 @@ SRCS = $(wildcard *.c)
 
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 
+BONUS_SRCS = ft_lstnew_bonus.c
+
+BONUS_OBJS = ft_lstnew_bonus.o
+
 all: $(NAME)
 
 $(NAME): $(OBJS) 
@@ -19,12 +23,13 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS) 
+	rm -rf $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -rf libft.a
 
 re: fclean all
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+
+bonus: $(BONUS_OBJS)
+	$(CC) $(CFLAGS) -c $(BONUS_SRCS) -o $(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)

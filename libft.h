@@ -15,9 +15,13 @@
 //--------------------------INCLUDES--------------------------------------
 # include <unistd.h>
 # include <fcntl.h>
-# include <assert.h>
 # include <stdlib.h>
-# include <limits.h>
+//--------------------------STRUCTS---------------------------------------
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 //--------------------------DEFINES---------------------------------------
 # define TRUE 1
 # define FALSE 0
@@ -63,4 +67,6 @@ void	*ft_memccpy(void *dest, const void *src, int c, unsigned int n);
 void	ft_bzero(void *s, unsigned int n);
 void	*ft_memset(void *s, int c, unsigned int n);
 void	*ft_calloc(unsigned int nmemb, unsigned int size);
+//--------------------------LIST MANIPULATION-----------------------------
+t_list	*ft_lstnew(void *content);
 #endif
