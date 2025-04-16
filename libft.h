@@ -15,6 +15,7 @@
 //--------------------------INCLUDES--------------------------------------
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdint.h>
 //--------------------------STRUCTS---------------------------------------
 typedef struct s_list
 {
