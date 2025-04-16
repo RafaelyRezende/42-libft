@@ -43,3 +43,5 @@ bonus: $(BONUS_OBJS)
 
 $(BONUS_OBJS): $(BONUS_SRCS)
 	$(CC) $(CFLAGS) -c $(BONUS_SRCS)
+
+.PHONY: all clean fclean bonus
