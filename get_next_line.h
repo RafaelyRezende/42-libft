@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 13:56:13 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/13 16:11:52 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/07/01 08:51:40 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "libft.h"
 
 int		ft_is_nl(char *buff);
 char	*get_next_line(int fd);
-int		ft_strlen(const char *line);
+int		ft_strlen_nl(const char *line);
 void	ft_offset(char *buff);
 int		ft_init(char **line, int *bytes_read, char *buff);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strconcat(char *s1, char *s2);
 
 #endif

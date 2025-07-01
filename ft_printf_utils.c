@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 19:12:50 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 11:03:22 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/07/01 09:12:52 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putletter(char l)
 {
-	return (write(1, &c, 1));
+	return (write(1, &l, 1));
 }
 
-int	ft_putstr(char *args)
+int	ft_putword(char *args)
 {
 	int		i;
 	int		tmp;
@@ -30,7 +30,7 @@ int	ft_putstr(char *args)
 		return (write(1, "(null)", 6));
 	while (str[i])
 	{
-		tmp += ft_putchar(str[i]);
+		tmp += ft_putletter(str[i]);
 		i++;
 	}
 	return (tmp);
@@ -43,6 +43,6 @@ int	ft_putunsigned(unsigned int args)
 	tmp = 0;
 	if (args > 9)
 		tmp += ft_putunsigned(args / 10);
-	tmp += ft_putchar(args % 10 + '0');
+	tmp += ft_putletter(args % 10 + '0');
 	return (tmp);
 }

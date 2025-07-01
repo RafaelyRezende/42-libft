@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:03:19 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/06/25 11:01:40 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/07/01 09:10:22 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ static int	ft_putnbr(int args)
 		return (write(1, "-2147483648", 11));
 	if (args < 0)
 	{
-		tmp += ft_putchar('-');
+		tmp += ft_putletter('-');
 		args *= -1;
 	}
 	if (args >= 10)
 	{
 		tmp += ft_putnbr(args / 10);
-		tmp += ft_putchar(args % 10 + '0');
+		tmp += ft_putletter(args % 10 + '0');
 	}
 	if (args <= 9)
-		tmp += ft_putchar(args + '0');
+		tmp += ft_putletter(args + '0');
 	return (tmp);
 }
 
@@ -46,7 +46,7 @@ static int	ft_puthexa(unsigned long args, int flag)
 	i = 0;
 	if (args > 15)
 		i += ft_puthexa(args / 16, flag);
-	i += ft_putchar(choose[args % 16]);
+	i += ft_putletter(choose[args % 16]);
 	return (i);
 }
 
@@ -57,17 +57,17 @@ static int	ft_putaddr(void *args)
 	if (!args)
 		return (write(1, "(nil)", 5));
 	addr = (unsigned long) args;
-	return (ft_putchar('0') + ft_putchar('x') + ft_puthexa(addr, 1));
+	return (ft_putletter('0') + ft_putletter('x') + ft_puthexa(addr, 1));
 }
 
 static int	ft_specifiers(va_list args, const char **c)
 {
 	if (**c == 's')
-		return (ft_putstr(va_arg(args, char *)));
+		return (ft_putword(va_arg(args, char *)));
 	else if (**c == 'd' || **c == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (**c == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		return (ft_putletter(va_arg(args, int)));
 	else if (**c == 'p')
 		return (ft_putaddr(va_arg(args, void *)));
 	else if (**c == 'x' )
@@ -77,7 +77,7 @@ static int	ft_specifiers(va_list args, const char **c)
 	else if (**c == 'u')
 		return (ft_putunsigned(va_arg(args, unsigned int)));
 	else if (**c == '%')
-		return (ft_putchar('%'));
+		return (ft_putletter('%'));
 	else
 		return (0);
 }
@@ -97,7 +97,7 @@ int	ft_printf(const char *fmt, ...)
 			i += ft_specifiers(args, &fmt);
 		}
 		else
-			i += ft_putchar(*fmt);
+			i += ft_putletter(*fmt);
 		fmt++;
 	}
 	va_end(args);
