@@ -6,11 +6,23 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 21:22:08 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/07/01 08:51:48 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/07/11 15:41:34 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static void	ft_clean_zero(char *buff)
+{
+	int	i;
+
+	i = 0;
+	while (buff[i])
+	{
+		buff[i] = '\0';
+		i++;
+	}
+}
 
 static void	ft_verify(int br, char *buff)
 {
@@ -43,7 +55,7 @@ char	*get_next_line(int fd)
 		if (bytes_read == -1 || (bytes_read == 0 && !*line))
 		{
 			if (bytes_read == -1)
-				ft_bzero(buffer, BUFFER_SIZE);
+				ft_clean_zero(buffer);
 			return (free(line), NULL);
 		}
 		if (bytes_read != 0)

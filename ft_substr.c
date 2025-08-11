@@ -6,28 +6,39 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:04:20 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/09 22:41:40 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/08/05 18:18:23 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static
+char	*ft_initial_alloc(char *s)
+{
+	s = (char *)malloc(1);
+	if (!s)
+		return (NULL);
+	*s = '\0';
+	return (s);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*substr;
 	unsigned int	i;
+	unsigned int	str_len;
+	unsigned int	diff;
 
 	i = 0;
-	if (!*s || start >= ft_strlen(s) || len == 0)
+	substr = NULL;
+	str_len = ft_strlen(s);
+	if (!*s || start >= str_len || len == 0)
 		return (ft_strdup(""));
-	if (start >= (unsigned int) ft_strlen(s) && len == 0)
-	{
-		substr = (char *) malloc(1);
-		*substr = '\0';
-		return (substr);
-	}
-	if (len > (ft_strlen(s) - start))
-		len = ft_strlen(s) - start;
+	if (start >= str_len && len == 0)
+		return (ft_initial_alloc(substr));
+	diff = (str_len - start);
+	if (len > diff)
+		len = diff;
 	substr = (char *) malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);

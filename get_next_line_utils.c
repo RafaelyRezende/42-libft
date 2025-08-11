@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 10:27:44 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/07/01 08:50:49 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/07/22 15:28:56 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_is_nl(char *buff)
 	return (0);
 }
 
-int	ft_strlen_nl(const char *line)
+int	ft_len2nl(const char *line)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ int	ft_init(char **line, int *bytes_read, char *buff)
 		return (0);
 	**line = '\0';
 	if (*buff != '\0')
-		*line = ft_strjoin(*line, buff);
+		*line = ft_strconcat(*line, buff);
 	if (*line == NULL)
 		return (free(*line), 0);
 	*bytes_read = 1;
@@ -87,7 +87,7 @@ char	*ft_strconcat(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	len = ft_strlen_nl(s2) + ft_strlen_nl(s1);
+	len = ft_len2nl(s2) + ft_len2nl(s1);
 	ptr = (char *)malloc(sizeof(char) * len + 1);
 	if (!ptr)
 		return (free(s1), NULL);

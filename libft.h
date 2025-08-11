@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 19:40:33 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/15 19:59:10 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/07/02 15:20:49 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include "get_next_line.h"
+# include "ft_printf.h"
 //--------------------------STRUCTS---------------------------------------
 typedef struct s_list
 {
