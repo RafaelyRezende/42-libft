@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 19:40:33 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/07/02 15:20:49 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/08/12 11:45:22 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -60,6 +60,7 @@ int		ft_isprint(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
+int		ft_isspace(int c);
 //--------------------------MEMORY MANIPULATION---------------------------
 void	*ft_memcpy(void *dest, const void *src, unsigned int n);
 int		ft_memcmp(const void *s1, const void *s2, unsigned int n);

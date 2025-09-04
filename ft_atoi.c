@@ -6,22 +6,11 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 08:54:43 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/11 12:24:10 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/08/12 17:30:30 by rluis-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isspace(int c)
-{
-	unsigned char	ch;
-
-	ch = (unsigned char) c;
-	if ((ch >= 9 && ch <= 13) || (ch == 32))
-		return (TRUE);
-	else
-		return (FALSE);
-}
 
 int	ft_atoi(const char *nptr)
 {
