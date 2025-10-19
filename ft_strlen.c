@@ -6,7 +6,7 @@
 /*   By: rluis-ya <rluis-ya@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 09:32:12 by rluis-ya          #+#    #+#             */
-/*   Updated: 2025/04/08 09:33:21 by rluis-ya         ###   ########.fr       */
+/*   Updated: 2025/10/19 18:38:42 by jps              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 size_t	ft_strlen(const char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+    if (!str)
+	return (0);
+    while (*p)
+	p++;
+    return ((size_t)(p - str));
 }
